@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="kor">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +7,41 @@
     <link rel="stylesheet" href="1.css">
 </head>
 <body>
-    <h1>Blackjack Game</h1>
-    <div class="game">
-        <div class="hand player-hand">
-            <h2>Player's Hand</h2>
-            <div id="player-cards" class="cards"></div>
-            <div id="player-score">Score: 0</div>
-        </div>
+    <div class="game-container">
+        <h1 class="game-title">Blackjack</h1>
 
-        <div class="hand dealer-hand">
-            <h2>Dealer's Hand</h2>
-            <div id="dealer-cards" class="cards"></div>
-            <div id="dealer-score">Score: ?</div>
+        <div class="info-container">
+            <div class="score">
+                <h2>Player Score: <span id="player-score">0</span></h2>
+                <div id="player-cards" class="card-container"></div>
+            </div>
+            
+            <div class="score">
+                <h2>Dealer Score: <span id="dealer-score">??</span></h2>
+                <div id="dealer-cards" class="card-container"></div>
+            </div>
         </div>
 
         <div class="controls">
-            <button id="hit-button">Hit</button>
-            <button id="stand-button">Stand</button>
-            <button id="restart-button">Restart</button>
+            <div class="betting">
+                <h3>Current Bet: <span id="current-bet">0</span></h3>
+                <h3>Total Coins: <span id="total-coins">1000</span></h3>
+                <button onclick="placeBet(5)">Bet 5</button>
+                <button onclick="placeBet(10)">Bet 10</button>
+                <button onclick="placeBet(50)">Bet 50</button>
+                <button onclick="placeBet(100)">Bet 100</button>
+                <button onclick="placeBet(1000)">Bet 1000</button>
+            </div>
+
+            <div class="game-buttons">
+                <button id="hit-button" onclick="hit()">Hit</button>
+                <button id="stand-button" onclick="stand()">Stand</button>
+                <button id="start-button" onclick="startGame()">Start Game</button>
+                <button id="restart-button" onclick="restartGame()" style="display: none;">Restart Game</button>
+            </div>
         </div>
 
-        <div id="message"></div>
+        <h2 id="game-result" class="game-result"></h2>
     </div>
 
     <script src="1.js"></script>
