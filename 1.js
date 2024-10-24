@@ -34,8 +34,8 @@ function shuffle(deck) {
 
 // 게임 시작
 function startGame() {
-    if (totalCoins <= 0) {
-        alert("You don't have enough coins to play!");
+    if (totalCoins == 0 && currentBet == 0)  {
+        alert("게임을 시작하기에 돈이 충분하지 않습니다.");
         return;
     }
 
@@ -62,7 +62,7 @@ function placeBet(amount) {
         totalCoins -= amount;
         updateBettingDisplay();
     } else {
-        alert("Not enough coins to place this bet!");
+        alert("베팅할 코인 부족!");
     }
 }
 
@@ -195,7 +195,7 @@ function endGame(result) {
     displayCards();
 
     if (result.includes("Player wins!")) {
-        totalCoins += currentBet * 2;  // 이겼을 때 베팅 금액의 2배 돌려줌
+        totalCoins += currentBet * 1.5;  // 이겼을 때 베팅 금액의 1.5배 돌려줌
     }
 
     currentBet = 0;
